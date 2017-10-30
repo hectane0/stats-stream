@@ -1,2 +1,4 @@
 vendor
 composer.lock
+src/Config/Parameters.php
+src/TestClass.php

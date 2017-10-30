@@ -1,0 +1,18 @@
+<?php
+
+namespace StatsStream\Config;
+
+
+class Parameters
+{
+
+    public static function getTwitchApiKey() : String
+    {
+        return 'PUT_YOUR_KEY_HERE';
+    }
+
+    public static function getYouTubeApiKey() : String
+    {
+        return 'PUT_YOUR_KEY_HERE';
+    }
+}
