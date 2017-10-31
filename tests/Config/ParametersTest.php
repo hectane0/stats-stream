@@ -17,9 +17,3 @@ class ParametersTest extends TestCase
         $this->assertTrue(is_string(Parameters::getTwitchApiKey()));
     }
 }
-/**
- * Created by PhpStorm.
- * User: patryk
- * Date: 10/29/17
- * Time: 5:49 PM
- */

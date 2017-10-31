@@ -3,12 +3,16 @@
 namespace StatsStream\Domain;
 
 
-use StatsStream\Domain\Exception\NotImplementedException;
+use StatsStream\Domain\Exception\ProviderNotImplementedException;
 
 class Statistics
 {
     private $providers = [];
 
+    /**
+     * Statistics constructor.
+     * @param $service
+     */
     public function __construct($service)
     {
         $this->providers = Factory\StatsProviderFactory::getAvailableProviders($service);
@@ -19,7 +23,7 @@ class Statistics
         $provider = $this->providers[$name];
 
         if (null == $provider) {
-            throw new NotImplementedException();
+            throw new ProviderNotImplementedException();
         }
 
         return $provider;

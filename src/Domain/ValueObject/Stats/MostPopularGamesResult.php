@@ -9,11 +9,20 @@ class MostPopularGamesResult
 
     /**
      * MostPopularGamesResult constructor.
-     * @param array $list
+     * @param array $names Names of games
+     * @param array $viewers Numbers of viewers. Must be corresponding to names
+     * @throws \Exception
+     * @internal param array $list
      */
-    public function __construct(array $list)
+    public function __construct(array $names, array $viewers)
     {
-        $this->list = $list;
+        if (count($names) !== count($viewers)) {
+            throw new \Exception("Arrays' size must be the same.");
+        }
+
+        foreach (array_combine($names, $viewers) as $name => $viewers) {
+            $this->list[] = ['name' => $name, 'viewers' => $viewers];
+        }
     }
 
     /**
@@ -31,6 +40,6 @@ class MostPopularGamesResult
      */
     public function getPosition(int $position) : String
     {
-        return $this->list[$position-1];
+        return $this->list[$position - 1];
     }
 }

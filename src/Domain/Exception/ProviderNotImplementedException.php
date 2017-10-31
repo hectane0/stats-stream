@@ -3,7 +3,7 @@
 namespace StatsStream\Domain\Exception;
 
 
-class NotImplementedException extends \Exception
+class ProviderNotImplementedException extends \Exception
 {
 
 }

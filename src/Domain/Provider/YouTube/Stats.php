@@ -8,8 +8,15 @@ use StatsStream\Domain\ValueObject\Stats\MostPopularGamesResult;
 
 class Stats extends ProviderBase implements \StatsStream\Domain\Provider\Stats
 {
-    public function getMostPopularGames() : MostPopularGamesResult
+    private $client;
+
+    public function __construct($client)
     {
-        return new MostPopularGamesResult([]);
+        $this->client = $client;
+    }
+
+    public function getMostPopularGames(int $limit = 10) : MostPopularGamesResult
+    {
+        return new MostPopularGamesResult([], []);
     }
 }

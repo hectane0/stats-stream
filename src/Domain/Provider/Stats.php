@@ -7,5 +7,7 @@ use StatsStream\Domain\ValueObject\Stats\MostPopularGamesResult;
 
 interface Stats
 {
-    public function getMostPopularGames() : MostPopularGamesResult;
+    public function __construct($client);
+
+    public function getMostPopularGames(int $limit) : MostPopularGamesResult;
 }

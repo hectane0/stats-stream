@@ -3,6 +3,7 @@
 namespace StatsStream\Application;
 
 
+use StatsStream\Domain\Provider\Stats;
 use StatsStream\Domain\Statistics;
 
 class StatisticsService
@@ -14,8 +15,9 @@ class StatisticsService
      */
     public function getMostPopularGamesFromService(String $serviceName, int $limit = 10)
     {
-        $stats = new Statistics($serviceName);
+        /** @var $stats Stats */
+        $stats = (new Statistics($serviceName))->get('Stats');
 
-        return $stats->get('Stats')->getMostPopularGames()->getList($limit);
+        return $stats->getMostPopularGames($limit)->getList($limit);
     }
 }

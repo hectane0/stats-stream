@@ -3,7 +3,7 @@
 namespace StatsStream\Domain\Factory;
 
 
-use StatsStream\Domain\Exception\NotImplementedException;
+use StatsStream\Domain\Exception\ClientNotImplementedException;
 use StatsStream\Infrastructure\ApiClient\ClientInterface;
 
 class StatsProviderFactory
@@ -14,7 +14,7 @@ class StatsProviderFactory
      * Return array od implemented providers for streaming service
      * @param string $service
      * @return array
-     * @throws NotImplementedException
+     * @throws ClientNotImplementedException
      */
     public static function getAvailableProviders(String $service) : array
     {
@@ -30,7 +30,7 @@ class StatsProviderFactory
                 $clientClass = "StatsStream\\Infrastructure\\ApiClient\\$service";
 
                 if (!class_exists($clientClass)) {
-                    throw new NotImplementedException();
+                    throw new ClientNotImplementedException();
                 }
 
                 $client = $clientClass::get();
