@@ -1,9 +1,11 @@
 <?php
 
-namespace StatsStream\Domain\ValueObject\Stats;
+namespace StatsStream\Domain\ValueObject\Stream;
 
 
-class MostPopularGamesResult
+use StatsStream\Domain\ValueObject\Spreadsheetable;
+
+class TopStreamingGamesResult implements Spreadsheetable
 {
     private $list;
 
@@ -41,5 +43,10 @@ class MostPopularGamesResult
     public function getPosition(int $position) : String
     {
         return $this->list[$position - 1];
+    }
+
+    public function map() : array
+    {
+        return $this->list;
     }
 }

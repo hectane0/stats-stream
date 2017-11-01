@@ -6,7 +6,7 @@ namespace StatsStream\Domain\Provider\Twitch;
 use StatsStream\Domain\Provider\ProviderBase;
 use TwitchApi\TwitchApi;
 
-class Stats extends ProviderBase implements \StatsStream\Domain\Provider\Stats
+class Search extends ProviderBase implements \StatsStream\Domain\Provider\Search
 {
 
     /** @var $client TwitchApi */
@@ -18,5 +18,14 @@ class Stats extends ProviderBase implements \StatsStream\Domain\Provider\Stats
     public function __construct($client)
     {
         $this->client = $client;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getVideosCountForQuery(String $query): int
+    {
+        $result = $this->client->searchStreams($query);
+        return $result['_total'];
     }
 }

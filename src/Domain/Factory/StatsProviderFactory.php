@@ -8,7 +8,7 @@ use StatsStream\Infrastructure\ApiClient\ClientInterface;
 
 class StatsProviderFactory
 {
-    const PROVIDERS = ['Stats', 'Stream'];
+    const PROVIDERS = ['Stream', 'Stream', 'Search'];
 
     /**
      * Return array od implemented providers for streaming service
@@ -30,13 +30,16 @@ class StatsProviderFactory
                 $clientClass = "StatsStream\\Infrastructure\\ApiClient\\$service";
 
                 if (!class_exists($clientClass)) {
-                    throw new ClientNotImplementedException();
+//                    throw new ClientNotImplementedException();
+                    $client = null;
                 }
 
                 $client = $clientClass::get();
                 $providers[$provider] = new $class($client);
+
             }
         }
+
         return $providers;
     }
 }
