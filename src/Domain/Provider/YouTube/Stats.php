@@ -14,9 +14,4 @@ class Stats extends ProviderBase implements \StatsStream\Domain\Provider\Stats
     {
         $this->client = $client;
     }
-
-    public function getMostPopularGames(int $limit = 10) : MostPopularGamesResult
-    {
-        return new MostPopularGamesResult([], []);
-    }
 }

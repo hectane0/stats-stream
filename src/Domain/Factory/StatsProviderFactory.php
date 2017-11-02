@@ -30,8 +30,7 @@ class StatsProviderFactory
                 $clientClass = "StatsStream\\Infrastructure\\ApiClient\\$service";
 
                 if (!class_exists($clientClass)) {
-//                    throw new ClientNotImplementedException();
-                    $client = null;
+                    throw new ClientNotImplementedException();
                 }
 
                 $client = $clientClass::get();

@@ -7,6 +7,12 @@ use StatsStream\Domain\ValueObject\Spreadsheetable;
 
 class Spreadsheet
 {
+
+    // TODO: Inject generate provider to extend generating to other formats
+    public function __construct()
+    {
+    }
+
     public function generate(Spreadsheetable $result)
     {
         $array = $result->map();
@@ -19,5 +25,6 @@ class Spreadsheet
         }
         fclose($out);
 
+        return $out;
     }
 }
