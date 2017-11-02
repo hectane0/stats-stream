@@ -8,7 +8,7 @@ use StatsStream\Infrastructure\ApiClient\ClientInterface;
 
 class StatsProviderFactory
 {
-    const PROVIDERS = ['Stream', 'Stream', 'Search'];
+    const PROVIDERS = ['Stream', 'Stream', 'Search', 'Game'];
 
     /**
      * Return array od implemented providers for streaming service
