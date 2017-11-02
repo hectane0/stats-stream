@@ -12,7 +12,8 @@
   "require": {
     "php": "^7.0",
     "nicklaw5/twitch-api-php": "0.1.*",
-    "google/apiclient": "^2.0"
+    "google/apiclient": "^2.0",
+    "composer/composer": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "^6.4"
@@ -26,5 +27,9 @@
     "psr-4": {
       "StatsStream\\Test\\": "tests/"
     }
+  },
+  "scripts": {
+    "post-install-cmd": "\\StatsStream\\Script\\Composer::copyParameters",
+    "post-update-cmd": "\\StatsStream\\Script\\Composer::copyParameters"
   }
 }
