@@ -28,4 +28,10 @@ class Search extends ProviderBase implements \StatsStream\Domain\Provider\Search
         $result = $this->client->searchStreams($query);
         return $result['_total'];
     }
+
+    public function getReturnedTitlesForQuery(String $query, int $limit): array
+    {
+        // TODO: Implement getReturnedTitlesForQuery() method.
+        return [];
+    }
 }

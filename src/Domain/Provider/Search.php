@@ -19,4 +19,12 @@ interface Search
      */
     public function getVideosCountForQuery(String $query) : int;
 
+    /**
+     * Return titles of found videos
+     * @param String $query
+     * @param int $limit
+     * @return array
+     */
+    public function getReturnedTitlesForQuery(String $query, int $limit) : array;
+
 }

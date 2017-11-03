@@ -16,11 +16,9 @@ class Spreadsheet
     public function generate(Spreadsheetable $result)
     {
         $array = $result->map();
-
         $out = fopen("php://output", 'w');
 
-        foreach ($array as $row)
-        {
+        foreach ($array as $row) {
             fputcsv($out, $row,"\t");
         }
         fclose($out);
