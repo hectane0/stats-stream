@@ -1,7 +1,7 @@
 # StatsStream
 
 
-##Supporting services: 
+## Supporting services: 
   * YouTube
   * Twitch
   * Smashcast
@@ -19,7 +19,7 @@ $result = $stats->findUniqueVideosOnTwitch();
 print_r($result);
 ```
 
-###Want to download a result as spreadsheet?
+### Want to download a result as spreadsheet?
 No problem: Use SpreadsheetService:
 
 ```php
@@ -28,8 +28,8 @@ $xml = new \StatsStream\Application\SpreadsheetService();
 $xml->download($result);
 ```
 
-###Want to extend library with new streaming service? 
+### Want to extend library with new streaming service? 
 Easy-peasy - just bring API client into existence in `Infrastructure/ApiClient/`, then create new service directory in `Domain/Provider/` and implement as many providers as you need.
 
-###Want to extend library with new functionality?
+### Want to extend library with new functionality?
 Place them in `Application/StatisticsService/StatisticsService.php`
