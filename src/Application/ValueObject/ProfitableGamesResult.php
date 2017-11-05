@@ -5,7 +5,7 @@ namespace StatsStream\Application\ValueObject;
 
 use StatsStream\Domain\ValueObject\Spreadsheetable;
 
-class profitableGamesResult implements Spreadsheetable
+class ProfitableGamesResult implements Spreadsheetable
 {
     private $list;
 
@@ -25,6 +25,7 @@ class profitableGamesResult implements Spreadsheetable
     public function map(): array
     {
         $mapped = [];
+        $mapped[] = ['Nazwa', 'Współczynnik opłacalności'];
         foreach ($this->list as $key => $value) {
             $mapped[] = [$key, $value];
         }

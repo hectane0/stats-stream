@@ -43,6 +43,7 @@ class Game extends ProviderBase implements \StatsStream\Domain\Provider\Game
     private function searchCategoryFromName(String $name) : int
     {
 
+
         $result = $this->client->get('search/games', ['query' => ['q' => $name]]);
         $result = $this->getContentFromGuzzle($result);
 

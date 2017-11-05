@@ -45,5 +45,4 @@ class Stream extends ProviderBase implements \StatsStream\Domain\Provider\Stream
 
         return $return;
     }
-
 }
